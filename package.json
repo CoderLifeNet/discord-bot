@@ -16,7 +16,8 @@
         "@types/node": "^20.14.8",
         "discord.js": "^14.15.3",
         "dotenv": "^16.4.5",
-        "glob": "^10.4.2"
+        "glob": "^10.4.2",
+        "mongoose": "^8.4.3"
     },
     "devDependencies": {
         "concurrently": "^8.2.2",

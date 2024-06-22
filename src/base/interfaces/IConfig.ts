@@ -3,4 +3,5 @@ export default interface IConfig {
     clientId: string;
     guildId: string;
     owners: string[];
+    mongoUrl: string;
 }

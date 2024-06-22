@@ -1,6 +1,5 @@
 import {
     ChatInputCommandInteraction,
-    CacheType,
     AutocompleteInteraction,
 } from 'discord.js';
 import Category from '../enums/Category';
@@ -31,7 +30,7 @@ export default class Command implements ICommand {
         this.dev = options.dev;
     }
 
-    Execute(interaction: ChatInputCommandInteraction<CacheType>): void {}
+    Execute(interaction: ChatInputCommandInteraction): void {}
 
-    AutoComplete(interaction: AutocompleteInteraction<CacheType>): void {}
+    AutoComplete(interaction: AutocompleteInteraction): void {}
 }

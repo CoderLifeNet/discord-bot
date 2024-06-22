@@ -12,5 +12,5 @@ export default class SubCommand implements ISubCommand {
         this.name = options.name;
     }
 
-    Execute(interaction: ChatInputCommandInteraction<CacheType>): void {}
+    Execute(interaction: ChatInputCommandInteraction): void {}
 }

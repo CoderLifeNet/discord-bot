@@ -1,10 +1,11 @@
-import { Client, Collection } from 'discord.js';
+import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import ICustomClient from '../interfaces/ICustomClient';
 import IConfig from '../interfaces/IConfig';
 import config from '../../config';
 import Handler from './Handler';
 import Command from './Command';
 import SubCommand from './SubCommand';
+import { connect } from 'mongoose';
 
 export default class CustomClient extends Client implements ICustomClient {
     config: IConfig;
@@ -15,7 +16,7 @@ export default class CustomClient extends Client implements ICustomClient {
     devMode: boolean;
 
     constructor() {
-        super({ intents: [] });
+        super({ intents: [GatewayIntentBits.Guilds] });
         this.config = config;
         this.handler = new Handler(this);
         this.commands = new Collection();
@@ -28,6 +29,10 @@ export default class CustomClient extends Client implements ICustomClient {
         this.LoadHandlers();
 
         this.login(this.config.token);
+
+        connect(this.config.mongoUrl).then(() => {
+            console.log('Connected to MongoDB!');
+        });
     }
 
     LoadHandlers(): void {
